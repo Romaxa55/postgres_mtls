@@ -6,10 +6,10 @@ services:
     env_file:
       - .env
     volumes:
-      - ./certs/server:/var/lib/postgresql/certs
-      - ./server.conf:/etc/postgresql/postgresql.conf
-      - ./pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
       - ./postgres_data:/var/lib/postgresql/data
+      - ./certs/server:/etc/certs
+      - ./server.conf:/etc/postgresql.conf
+      - ./pg_hba.conf:/etc/pg_hba.conf
     command: -c 'config_file=/etc/postgresql/postgresql.conf'
     ports:
       - "5432:5432"
