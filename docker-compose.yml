@@ -5,10 +5,11 @@ services:
     image: postgres:16.2-alpine3.19
     volumes:
       - ./certs/server:/var/lib/postgresql/certs
-      - postgres_data:/var/lib/postgresql/data
       - ./server.conf:/etc/postgresql/postgresql.conf
+      - ./pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+      - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_USER: postgres
     command: -c 'config_file=/etc/postgresql/postgresql.conf'
     ports:
       - "5432:5432"
