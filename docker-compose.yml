@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:16.2-alpine3.19
+    volumes:
+      - ./certs/server:/var/lib/postgresql/certs
+      - postgres_data:/var/lib/postgresql/data
+      - ./server.conf:/etc/postgresql/postgresql.conf
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+    command: -c 'config_file=/etc/postgresql/postgresql.conf'
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
