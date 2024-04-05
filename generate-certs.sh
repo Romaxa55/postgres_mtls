@@ -32,6 +32,6 @@ openssl x509 -req -in certs/client/client.csr -CA certs/ca/ca.crt -CAkey certs/c
 chmod 600 certs/server/server.key
 
 # Изменение владельца приватного ключа сервера
-sudo chown 70:70 -R certs
+sudo chown 70:70 -R certs/server/server.key
 
 echo "Сертификаты успешно созданы."
