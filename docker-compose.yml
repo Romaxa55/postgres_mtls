@@ -8,9 +8,9 @@ services:
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
       - ./postgres-initdb/:/docker-entrypoint-initdb.d/
-      - ./certs/server/server.crt:/var/lib/pgsql/data/server.crt
-      - ./certs/server/server.key:/var/lib/pgsql/data/server.key
-      - ./certs/ca/ca.crt:/var/lib/pgsql/data/root.crt
+      - ./certs/server/server.crt:/etc/ssl/server.crt
+      - ./certs/server/server.key:/etc/ssl/server.key
+      - ./certs/ca/ca.crt:/etc/ssl/root.crt
     ports:
       - "5432:5432"
 
